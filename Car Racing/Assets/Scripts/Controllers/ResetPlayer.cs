@@ -26,7 +26,7 @@ public class ResetPlayer : MonoBehaviour
         }
     }
 
-    void distanceminimum()
+    public void distanceminimum()
     {
 
         // Make sure there are checkpoints

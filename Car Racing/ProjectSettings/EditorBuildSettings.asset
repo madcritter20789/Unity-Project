@@ -12,9 +12,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Level Selection.unity
     guid: e656c949949bdb24da5ebff7e613d53b
   - enabled: 1
-    path: Assets/Scenes/TrackMainLevel.unity
+    path: Assets/Scenes/Tracks/TrackMainLevel.unity
     guid: df1b7c5766044a44dba02941ab110ec7
   - enabled: 1
-    path: Assets/Scenes/OffRoad.unity
+    path: Assets/Scenes/Tracks/RaceTrack 1.unity
+    guid: ca11ef30290dba341aaaf1e461c0f1a5
+  - enabled: 1
+    path: Assets/Scenes/Tracks/RaceTrack 2.unity
+    guid: 687facb1c33afa84babd46e743b43dd5
+  - enabled: 1
+    path: Assets/Scenes/Tracks/RaceTrack 3.unity
+    guid: b7b1c147d1f06a645b182417ffa6304b
+  - enabled: 1
+    path: Assets/Scenes/Tracks/RaceTrack 4.unity
+    guid: 44366b0b877106147bd0c900b3aec776
+  - enabled: 1
+    path: Assets/Scenes/SoundSettings.unity
+    guid: 52d93203a9d0ae845b5411bfc3bb6c1d
+  - enabled: 0
+    path: Assets/Scenes/Tracks/RaceTrack 5.unity
+    guid: de2b3d97a8defaf4199f89bc33e3c45c
+  - enabled: 0
+    path: Assets/Scenes/Extra/OffRoad.unity
     guid: 35cea2ecc44ca0644ad5aeb9a52a735f
   m_configObjects: {}

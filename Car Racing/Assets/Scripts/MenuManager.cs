@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
     //[SerializeField]public Animator circleOpen;
+
+
+    public GameObject LoadingPanel;
+    [SerializeField] Slider loadingSlider;
+    [SerializeField] TextMeshProUGUI progressText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,11 +55,29 @@ public class MenuManager : MonoBehaviour
     public void OpenNextLevel()
     {
         int level = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(level+1);
+        //SceneManager.LoadScene(level+1);
+        StartCoroutine(LoadAsynchronousScene(level+1));
     }
 
     public void Quitting()
     {
         Application.Quit();
+    }
+    public void LoadLevel(int sceneIndex)
+    {
+        StartCoroutine(LoadAsynchronousScene(sceneIndex));
+    }
+
+    IEnumerator LoadAsynchronousScene(int sceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+        LoadingPanel.gameObject.SetActive(true);
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+            loadingSlider.value = progress;
+            progressText.text = progress * 100f + "%";
+            yield return null;
+        }
     }
 }

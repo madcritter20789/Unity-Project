@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Controller : MonoBehaviour
 {
@@ -65,6 +66,10 @@ public class Controller : MonoBehaviour
 
     private string previousNodeName;
 
+    [Header("OnScreenInput")]
+    [SerializeField] public int horizontalInput;
+    [SerializeField] public int verticalInput;
+    //[SerializeField] public bool isBraking;
 
     internal enum driver
     {
@@ -279,8 +284,16 @@ public class Controller : MonoBehaviour
 
     private void GetPlayerInput()
     {
-        moveInput = Input.GetAxis("Vertical");
-        steerInput = Input.GetAxis("Horizontal");
+        //moveInput = Input.GetAxis("Vertical");
+        //steerInput = Input.GetAxis("Horizontal");
+        // Keyboard Input
+        float keyboardVerticalInput = Input.GetAxis("Vertical");
+        float keyboardHorizontalInput = Input.GetAxis("Horizontal");
+
+        // Use keyboard input if available, otherwise fall back to on-screen input
+        moveInput = keyboardVerticalInput != 0 ? keyboardVerticalInput : verticalInput;
+        steerInput = keyboardHorizontalInput != 0 ? keyboardHorizontalInput : horizontalInput;
+
         if (currentNode == null) return;
         if (currentNode.name != previousNodeName)
         {
@@ -306,6 +319,8 @@ public class Controller : MonoBehaviour
             }
         }
     }
+
+
 
     #endregion
 

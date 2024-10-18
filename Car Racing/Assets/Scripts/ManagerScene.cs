@@ -29,4 +29,9 @@ public class ManagerScene : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(level);
     }
+
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

@@ -28,9 +28,13 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, /*IPointerClickHa
             animator.SetBool("selected", true);
             if(Input.GetAxis("Submit")==1 || Input.GetMouseButton(0))
             {
-                if (thisIndex == 0)
+
+                    menuManager.LoadLevel(Level);
+                    
+
+                if (thisIndex == 2 && this.gameObject.name=="Exit")
                 {
-                    menuManager.OpenTackMainLevel(Level);
+                    Application.Quit();
                 }
 
                 animator.SetBool("pressed", true);
