@@ -34,10 +34,10 @@ public class Controller : MonoBehaviour
     private float steerInput = 0;
 
     [Header("Car Settings")]
-    [SerializeField] private float acceleration = 25f;
-    [SerializeField] private float maxSpeed = 100f;
+    [SerializeField] public float acceleration = 25f;
+    [SerializeField] public float maxSpeed = 100f;
     [SerializeField] private float deceleration = 10f;
-    [SerializeField] private float steerStrength = 15f;
+    [SerializeField] public float steerStrength = 15f;
     [SerializeField] private AnimationCurve turningCurve;
     [SerializeField] private float dragCoefficient = 1f;
     [SerializeField] private float breakingDecelearation = 100f;
@@ -71,12 +71,15 @@ public class Controller : MonoBehaviour
     [SerializeField] public int verticalInput;
     //[SerializeField] public bool isBraking;
 
-    internal enum driver
+    [Header("Car Select")]
+    public int CarIndex;
+
+    public enum driver
     {
         Player, 
         AI
     }
-    [SerializeField] driver driveController;
+    [SerializeField] public driver driveController;
     // Start is called before the first frame update
     void Start()
     {

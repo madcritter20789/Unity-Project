@@ -389,8 +389,8 @@ MonoBehaviour:
   wheelRadius: 0.33
   acceleration: 25
   maxSpeed: 100
-  deceleration: 10
-  steerStrength: 15
+  deceleration: 25
+  steerStrength: 20
   turningCurve:
     serializedVersion: 2
     m_Curve:
@@ -444,6 +444,8 @@ MonoBehaviour:
   maxPitch: 1
   lapCount: 0
   laptime: 0
+  horizontalInput: 0
+  verticalInput: 0
   driveController: 0
   distance: 15
   currentNode: {fileID: 0}
@@ -21601,8 +21603,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9146092371653058168}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0001324266, y: -0.9894, z: 0.14521307, w: -0.0009022652}
-  m_LocalPosition: {x: -0.013678553, y: 3.25, z: 7.4999895}
+  m_LocalRotation: {x: -0.006869762, y: -0.9882926, z: 0.14505053, w: -0.04680666}
+  m_LocalPosition: {x: -1.7088282, y: 3.25, z: -16.509851}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

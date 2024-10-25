@@ -46,11 +46,48 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI currentTime;
     [SerializeField] TextMeshProUGUI currentSpeed;
 
+    [Header("Ai Reset")]
+    [SerializeField] GameObject[] CarResets;
+
     private void Awake()
     {
         ImagePanel.SetActive(false);
+        /*
+        for (int i = 0; i < PlayerCurrentNames.Count; i++)
+        {
+            if (PlayerCurrentNames[i].CarIndex == PlayerPrefs.GetInt("carIndex"))
+            {
+                PlayerCurrentNames[i].driveController = Controller.driver.Player;
+            }
+            else
+            {
+                PlayerCurrentNames[i].driveController = Controller.driver.AI;
+            }
 
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Controller>();
+        }
+        */
+
+        // Find all controllers in the scene
+        Controller[] allControllers = FindObjectsOfType<Controller>();
+
+        foreach (Controller controller in allControllers)
+        {
+            // Check if the controller has driver set to "player"
+          
+                if (controller.CarIndex == PlayerPrefs.GetInt("carIndex"))
+                {
+                    // Assign this controller to the player controller reference
+                    controller.driveController = Controller.driver.Player;
+                    playerController = controller;
+                }
+                else
+                {
+                    controller.driveController = Controller.driver.AI;
+                }
+            
+        }
+
+        //playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<Controller>();
         PlayerNames = FindObjectsOfType<Controller>();
         PlayerCurrentNames = new List<Controller>();
         EndPanel.SetActive(false);
@@ -65,6 +102,8 @@ public class GameManager : MonoBehaviour
             presentvehicles.Add(new vehicles(g.GetComponent<Controller>().position, g.GetComponent<Controller>().name));
 
         }
+
+
     }
 
     // Start is called before the first frame update
@@ -78,6 +117,20 @@ public class GameManager : MonoBehaviour
             finalPanelList[i].gameObject.SetActive(true);
         }
         //playerPositionText.gameObject.SetActive(true);
+
+        for (int i = 0; i < CarResets.Count(); i++)
+        {
+            if (CarResets[i].GetComponent<Controller>().driveController == 0)
+            {
+                CarResets[i].GetComponent<AIReset>().enabled = false; ;
+            }
+            else
+            {
+                CarResets[i].GetComponent<ResetPlayer>().enabled = false;
+            }
+        }
+
+
     }
 
     // Update is called once per frame

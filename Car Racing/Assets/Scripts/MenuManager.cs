@@ -7,9 +7,6 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
-    //[SerializeField]public Animator circleOpen;
-
-
     public GameObject LoadingPanel;
     [SerializeField] Slider loadingSlider;
     [SerializeField] TextMeshProUGUI progressText;
@@ -17,13 +14,17 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //circleOpen.SetBool("Open", false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    public void OpenTrack(int Level)
+    {
+        StartCoroutine(LoadAsynchronousScene(Level));
     }
 
 
@@ -33,29 +34,17 @@ public class MenuManager : MonoBehaviour
     }
     public void OpenTackMainLevel(int Level)
     {
-        /*
-        if(circleOpen.GetBool("Open"))
-        {
-        }
-        */
-        //circleOpen.SetBool("Open", true);
+
         SceneManager.LoadScene(Level);
     }
     public void OpenTrack()
     {
-        /*
-        if(circleOpen.GetBool("Open"))
-        {
-        }
-        */
-        //circleOpen.SetBool("Open", true);
-        //circleOpen.SetBool("Close", true);
+
         SceneManager.LoadScene(1);
     }
     public void OpenNextLevel()
     {
         int level = SceneManager.GetActiveScene().buildIndex;
-        //SceneManager.LoadScene(level+1);
         StartCoroutine(LoadAsynchronousScene(level+1));
     }
 

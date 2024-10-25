@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class VolumeManager : MonoBehaviour
 {
@@ -55,5 +56,9 @@ public class VolumeManager : MonoBehaviour
             Debug.Log(PlayerPrefs.GetFloat("musicVolume"));
             Debug.Log(textVolumeButton.text);
         }
+    }
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

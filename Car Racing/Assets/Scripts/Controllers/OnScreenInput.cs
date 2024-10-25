@@ -16,7 +16,19 @@ public class OnScreenInput : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 
     private void Start()
     {
+        // Find all controllers in the scene
+        Controller[] allControllers = FindObjectsOfType<Controller>();
 
+        foreach (Controller controller in allControllers)
+        {
+            // Check if the controller has driver set to "player"
+            if (controller.driveController == 0)
+            {
+                // Assign this controller to the player controller reference
+                PlayerController = controller;
+                break; // Stop the loop once the correct controller is found
+            }
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
