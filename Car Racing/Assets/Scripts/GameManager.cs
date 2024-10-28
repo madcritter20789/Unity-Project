@@ -298,4 +298,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    public void ResetPlayer()
+    {
+        ResetPlayer PlayerController;
+        // Find all controllers in the scene
+        ResetPlayer[] allControllers = FindObjectsOfType<ResetPlayer>();
+
+        foreach (ResetPlayer controller in allControllers)
+        {
+            // Check if the controller has driver set to "player"
+            if (controller.isActiveAndEnabled)
+            {
+                PlayerController = controller;
+                PlayerController.GetComponent<ResetPlayer>().distanceminimum();
+            }
+        }
+    }
 }

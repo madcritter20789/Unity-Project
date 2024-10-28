@@ -55,34 +55,22 @@ public class CarController : MonoBehaviour
     [SerializeField]
     [Range(1, 5)] private float maxPitch = 1f;
 
-    GameManager gameManager;
-    [SerializeField] public int lapTime = 0;
-    private bool raceFinsished = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         carRB = GetComponent<Rigidbody>();
-        gameManager = FindObjectOfType<GameManager>();
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (raceFinsished)
-        {
-            moveInput = Mathf.Lerp(moveInput, 0f, Time.deltaTime);
-            //calaculateDistanceofWaypoints();
-        }
-        else
-        {
-            if (gameManager.time <= 0)
-            {
+
                 GetPlayerInput();
                 AiInput();
-            }
-        }
+
     }
 
     private void FixedUpdate()
@@ -387,18 +375,5 @@ public class CarController : MonoBehaviour
         if (currentNode != null)
             Gizmos.DrawSphere(currentNode.transform.position, 0.5f);
     }
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "FinishWall")
-        {
 
-            lapTime += 1;
-            if (lapTime >= 6)
-            {
-                raceFinsished = true;
-                //gameManager.playerList(gameObject.name);
-                Debug.Log("Race Finished");
-            }
-        }
-    }
 }
