@@ -13,8 +13,9 @@ Car Selection: Choose from multiple cars to suit your style and preferences.
 
 Enhanced AI Mechanics: Advanced enemy AI for smarter and tougher opponents.
 
-
 Play: https://madcritter20789.itch.io/speed-surge
+![CARRACINGGAME-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/ff4575c4-52c9-4273-8e0f-2d6770717167)
+
 
 # Obstacle Kicks
 
@@ -29,4 +30,5 @@ Interactive Shooting Mechanic: Drag and stretch on the screen to determine the f
 Obstacle Gameplay: Stationary poles represent players, adding a strategic layer to every shot.
 
 Play: https://madcritter20789.itch.io/obstacle-kicks
+![ObstacleKicks-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/868f24c5-79ac-450f-9297-3d3f5de9c52d)
 
