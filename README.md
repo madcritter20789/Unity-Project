@@ -31,5 +31,6 @@ Interactive Shooting Mechanic: Drag and stretch on the screen to determine the f
 Obstacle Gameplay: Stationary poles represent players, adding a strategic layer to every shot.
 
 Play: https://madcritter20789.itch.io/obstacle-kicks
+
 ![ObstacleKicks-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/868f24c5-79ac-450f-9297-3d3f5de9c52d)
 
